@@ -1,0 +1,77 @@
+body {
+	font: 18px/36px 'Bebas Neue', sans-serif;
+	text-transform: uppercase;
+	background-color: black;
+}
+
+h1 {
+	font-size: 80px;
+	text-align: center;
+	margin: 80px 0;
+	text-shadow: 3px 3px 5px fuchsia;
+	color: rgb(214, 214, 214);
+}
+
+.container {
+	width: 800px;
+	background-color: rgb(168, 166, 166);
+	margin: auto;
+	padding: 30px;
+	border-radius: 40px;
+	box-shadow: 0 0 50px 5px fuchsia;
+}
+
+.lightbox li {
+	width: 120px;
+	height: 120px;
+	/* overflow: hidden; */
+	border: 5px solid rgba(255, 0, 255, 0.752);
+	float: left;
+	margin-right: 70px;
+	position: relative;
+}
+
+.lightbox li, 
+.lightbox img,
+.lightbox span {
+	border-radius: 50%;
+}
+
+.lightbox li span {
+	display: block;
+	width: 120px;
+	height: 120px;
+	background-color: rgba(79, 77, 77, 0.631);
+	position: absolute;
+	top: 0;
+	text-align: center;
+	line-height: 120px;
+	font-size: 25px;
+	color: white;
+	text-shadow: 0px 0px 3px white;
+	opacity: 0;
+	transition: all ease-in-out .3s;
+}
+
+.lightbox li a:hover span {
+	opacity: 1;
+}
+
+.clear {
+	clear: both;
+}
+
+.overlay {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0);
+	z-index: 100;
+	transition: all ease-in-out .3s;
+}
+
+.overlay:target {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(255, 255, 255, 0.404);
+}
