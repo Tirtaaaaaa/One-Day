@@ -24,7 +24,7 @@ h1 {
 .lightbox li {
 	width: 120px;
 	height: 120px;
-	/* overflow: hidden; */
+	overflow: hidden;
 	border: 5px solid rgba(255, 0, 255, 0.752);
 	float: left;
 	margin-right: 70px;
@@ -32,8 +32,8 @@ h1 {
 }
 
 .lightbox li, 
-.lightbox img,
-.lightbox span {
+.lightbox li a img,
+.lightbox li span {
 	border-radius: 50%;
 }
 
@@ -62,16 +62,111 @@ h1 {
 }
 
 .overlay {
+	width: 0;
+	height: 0;
+	overflow: hidden;
 	position: fixed;
+	top: 0;
+	left: 0;
 	background-color: rgba(255, 255, 255, 0);
 	z-index: 100;
-	transition: all ease-in-out .3s;
+	transition: .8s;
+	text-align: center;
+	padding: 100px 0;
 }
 
 .overlay:target {
-	top: 0;
-	left: 0;
+	width: auto;
+	height: auto;
 	bottom: 0;
 	right: 0;
 	background-color: rgba(255, 255, 255, 0.404);
+}
+
+.overlay img {
+	min-height: 100%;
+	
+}
+
+.overlay:target img {
+	animation: zoomin 1s;
+}
+
+.overlay .close {
+	font-size: 40px;
+	text-decoration: none;
+	color: white;
+	text-shadow: 1px 1px 2px fuchsia;
+	position: absolute;
+	top: 93%;
+	right: 950px;
+	opacity: 0;
+}
+
+.overlay:target .close {
+	animation: xclose .5s .5s forwards;
+}
+
+.next {
+	width: 126px;
+	height: 126px; 
+	position: absolute;
+	bottom: 50%;
+	background-image: url(../img/right-chevron.png);
+	background-repeat: no-repeat;
+	margin-left: 50px;
+	opacity: 0;
+	
+}
+.previous {
+	width: 126px;
+	height: 126px; 
+	position: absolute;
+	bottom: 50%;
+	left: 27%;
+	background-image: url(../img/left-chevron.png);
+	background-repeat: no-repeat;
+	margin-right: 50px;
+	opacity: 0;
+	
+}
+
+.overlay:target .next {
+	animation: zoomin .5s .5s forwards;
+}
+.overlay:target .previous {
+	animation: zoomin .5s .5s forwards;
+}
+
+@keyframes zoomAndFade {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes xclose {
+	0% {
+		opacity: 0;
+		margin-top: -100px;
+	}
+
+	100% {
+		opacity: 1;
+		margin: 0;
+	}
+}
+
+@keyframes zoomin {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
